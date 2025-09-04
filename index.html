@@ -36,14 +36,20 @@
         text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     }
 
+    /* Estilo tipo fibra de carbono para el menú */
     .menu {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: 40px;
-        padding: 40px 20px 40px 20px;
-        background: rgba(244, 67, 54, 0.85); /* rojo más opaco */
-        transition: all 0.3s;
+        padding: 40px 20px;
+        background: repeating-linear-gradient(
+            45deg,
+            #2b2b2b,
+            #2b2b2b 10px,
+            #232323 10px,
+            #232323 20px
+        );
     }
 
     .car-card {
@@ -56,7 +62,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 3px solid rgba(0,0,0,0.6); /* cuadro alrededor del coche */
+        border: 3px solid rgba(0,0,0,0.6);
         background: #1f1f1f;
     }
 
@@ -64,14 +70,13 @@
         width: 100%;
         height: 140px;
         object-fit: cover;
-        transition: transform 0.5s;
         border-radius: 15px 15px 0 0;
     }
 
     .car-footer {
         width: 100%;
         height: 40px;
-        background: rgba(0,0,0,0.7); /* cuadro oscuro debajo */
+        background: rgba(0,0,0,0.7);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -97,15 +102,12 @@
         background-color: #ff6659;
     }
 
-    /* Hover Animación */
-    .menu:hover .car-card {
-        transform: scale(0.95);
-        opacity: 0.8;
-    }
+    /* Hover Animación - resalta solo el que está bajo el cursor */
     .car-card:hover {
         transform: scale(1.05);
         opacity: 1;
         z-index: 5;
+        box-shadow: 0 0 20px rgba(244, 67, 54, 0.8);
     }
 
     /* Modales */
@@ -144,6 +146,16 @@
     }
     .close:hover {
         color: #fff;
+    }
+
+    /* Lista de especificaciones */
+    ul.specs {
+        text-align: left;
+        margin: 0 auto 20px auto;
+        max-width: 400px;
+    }
+    ul.specs li {
+        margin-bottom: 8px;
     }
 
     footer {
@@ -194,7 +206,15 @@
         <span class="close" onclick="closeModal('modalSkyline')">&times;</span>
         <img src="supercochesimages/Skyline.webp" alt="Skyline">
         <h3>Especificaciones Skyline</h3>
-        <p>Turbo, velocidad máxima 250 km/h, motor RB26, 2 puertas, suspensión deportiva...</p>
+        <ul class="specs">
+            <li>Turbo</li>
+            <li>Velocidad máxima: 250 km/h</li>
+            <li>Motor: RB26</li>
+            <li>Puertas: 2</li>
+            <li>Suspensión deportiva</li>
+            <li>Sistema de frenos mejorado</li>
+            <li>Aerodinámica optimizada</li>
+        </ul>
         <a href="https://www.nissanusa.com/vehicles/sports-cars/gt-r.html" target="_blank" class="catalog-link">Ver catálogo oficial</a>
     </div>
 </div>
@@ -205,7 +225,15 @@
         <span class="close" onclick="closeModal('modalSupra')">&times;</span>
         <img src="supercochesimages/supra.webp" alt="Supra">
         <h3>Especificaciones Supra</h3>
-        <p>Turbo, velocidad máxima 250 km/h, motor 2JZ-GTE, 2 puertas, suspensión ajustable...</p>
+        <ul class="specs">
+            <li>Turbo</li>
+            <li>Velocidad máxima: 250 km/h</li>
+            <li>Motor: 2JZ-GTE</li>
+            <li>Puertas: 2</li>
+            <li>Suspensión ajustable</li>
+            <li>Sistema de frenos deportivos</li>
+            <li>Aerodinámica optimizada</li>
+        </ul>
         <a href="https://www.toyota.com/supra/" target="_blank" class="catalog-link">Ver catálogo oficial</a>
     </div>
 </div>
@@ -216,7 +244,15 @@
         <span class="close" onclick="closeModal('modalDodge')">&times;</span>
         <img src="supercochesimages/Dodgechallenger.webp" alt="Dodge Challenger">
         <h3>Especificaciones Dodge Challenger</h3>
-        <p>V8, velocidad máxima 320 km/h, motor 6.2L HEMI, 2 puertas, sistema de escape deportivo...</p>
+        <ul class="specs">
+            <li>V8</li>
+            <li>Velocidad máxima: 320 km/h</li>
+            <li>Motor: 6.2L HEMI</li>
+            <li>Puertas: 2</li>
+            <li>Sistema de escape deportivo</li>
+            <li>Suspensión reforzada</li>
+            <li>Frenos Brembo</li>
+        </ul>
         <a href="https://www.dodge.com/challenger.html" target="_blank" class="catalog-link">Ver catálogo oficial</a>
     </div>
 </div>
