@@ -5,137 +5,190 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Super Coches</title>
 <style>
-    body {margin:0;font-family:'Segoe UI', Tahoma, Geneva, Verdana,sans-serif;background-color:#111;color:#fff;}
-    header{text-align:center;padding:40px 20px;background:linear-gradient(90deg,#e60012,#ff4500);}
-    header h1{margin:0;font-size:3em;letter-spacing:2px;}
-    header p{font-size:1.2em;margin-top:10px;color:#f0f0f0;}
-    .catalogo{display:flex;justify-content:center;flex-wrap:wrap;gap:30px;padding:40px 20px;}
-    .auto{background-color:#1c1c1c;border-radius:15px;overflow:hidden;width:300px;box-shadow:0 8px 20px rgba(0,0,0,0.6);transition:transform 0.3s ease, box-shadow 0.3s ease;cursor:pointer;}
-    .auto:hover{transform:translateY(-10px);box-shadow:0 12px 30px rgba(0,0,0,0.8);}
-    .auto img{width:100%;display:block;}
-    .auto-content{padding:20px;text-align:center;}
-    .auto-content h2{margin:10px 0;font-size:1.8em;color:#ff4500;}
-    .auto-content p{margin:5px 0;color:#ddd;}
-    footer{text-align:center;padding:20px;background-color:#222;color:#aaa;}
-    .modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgba(0,0,0,0.9);}
-    .modal-content{background-color:#1c1c1c;margin:5% auto;padding:20px;border-radius:15px;width:90%;max-width:700px;color:#fff;text-align:center;position:relative;}
-    .modal-content img{width:100%;border-radius:10px;margin-bottom:20px;}
-    .qr{margin-top:15px;text-align:center;}
-    .qr img{width:150px;border:2px solid #ff4500;border-radius:10px;margin-top:5px;}
-    .close{color:#fff;position:absolute;top:15px;right:25px;font-size:30px;font-weight:bold;cursor:pointer;}
-    .close:hover{color:#ff4500;}
-    @media (max-width:980px){.catalogo{flex-direction:column;align-items:center;}}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #121212;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #1f1f1f;
+        padding: 20px;
+        text-align: center;
+    }
+    h1 {
+        margin: 0;
+        font-size: 2.5em;
+        color: #f44336;
+    }
+    .menu {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+    .car-card {
+        position: relative;
+        width: 250px;
+        height: 150px;
+        overflow: hidden;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+    .car-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+    }
+    .car-card:hover img {
+        transform: scale(1.1);
+    }
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    .car-card:hover .overlay {
+        opacity: 1;
+    }
+    .catalog-link {
+        padding: 10px 15px;
+        background-color: #f44336;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+    .catalog-link:hover {
+        background-color: #ff6659;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 10;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.9);
+    }
+    .modal-content {
+        background-color: #1f1f1f;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+    }
+    .modal-content img {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 15px;
+    }
+    .close {
+        color: #f44336;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .close:hover {
+        color: #fff;
+    }
 </style>
 </head>
 <body>
-
 <header>
     <h1>Super Coches</h1>
-    <p>Haz clic en cada coche para ver sus especificaciones completas</p>
 </header>
 
-<div class="catalogo">
-    <!-- Supra -->
-    <div class="auto" onclick="openModal('modalSupra')">
-        <img src="supercochesimages/supra.webp" alt="Supra">
-        <div class="auto-content">
-            <h2>Supra</h2>
-            <p>Año: 2025</p>
-            <p>Motor: 3.0L Turbo</p>
-        </div>
-    </div>
-
+<div class="menu">
     <!-- Skyline -->
-    <div class="auto" onclick="openModal('modalSkyline')">
+    <div class="car-card" onclick="openModal('modalSkyline')">
         <img src="supercochesimages/Skyline.webp" alt="Skyline">
-        <div class="auto-content">
-            <h2>Skyline</h2>
-            <p>Año: 2025</p>
-            <p>Motor: 2.8L Twin Turbo</p>
+        <div class="overlay">
+            <a href="https://www.nissanusa.com/vehicles/sports-cars/gt-r.html" target="_blank" class="catalog-link">Catálogo oficial</a>
         </div>
     </div>
-
+    <!-- Supra -->
+    <div class="car-card" onclick="openModal('modalSupra')">
+        <img src="supercochesimages/Supra.webp" alt="Supra">
+        <div class="overlay">
+            <a href="https://www.toyota.com/supra/" target="_blank" class="catalog-link">Catálogo oficial</a>
+        </div>
+    </div>
     <!-- Dodge Challenger -->
-    <div class="auto" onclick="openModal('modalChallenger')">
+    <div class="car-card" onclick="openModal('modalDodge')">
         <img src="supercochesimages/Dodgechallenger.webp" alt="Dodge Challenger">
-        <div class="auto-content">
-            <h2>Dodge Challenger</h2>
-            <p>Año: 2025</p>
-            <p>Motor: 6.2L V8</p>
+        <div class="overlay">
+            <a href="https://www.dodge.com/challenger.html" target="_blank" class="catalog-link">Catálogo oficial</a>
         </div>
     </div>
 </div>
 
-<!-- Modals -->
-<div id="modalSupra" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modalSupra')">&times;</span>
-        <img src="supercochesimages/supra.webp" alt="Supra">
-        <h2>Supra</h2>
-        <p>Motor: 3.0L Turbo</p>
-        <p>Potencia: 382 HP</p>
-        <p>0-100 km/h: 4.1s</p>
-        <p>Velocidad máxima: 250 km/h</p>
-        <p>Transmisión: Automática 8 velocidades</p>
-        <p>Tracción: Trasera</p>
-        <p>Equipamiento: Asientos deportivos, pantalla táctil 10", sistema audio premium</p>
-        <div class="qr">
-            <p>Escanea para más info:</p>
-            <img src="https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://TUUSUARIO.github.io/supercoches/index.html#supra" alt="QR Supra">
-        </div>
-    </div>
-</div>
-
+<!-- Modal Skyline -->
 <div id="modalSkyline" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modalSkyline')">&times;</span>
         <img src="supercochesimages/Skyline.webp" alt="Skyline">
-        <h2>Skyline</h2>
-        <p>Motor: 2.8L Twin Turbo</p>
-        <p>Potencia: 400 HP</p>
-        <p>0-100 km/h: 3.9s</p>
-        <p>Velocidad máxima: 270 km/h</p>
-        <p>Transmisión: Manual 6 velocidades</p>
-        <p>Tracción: Trasera</p>
-        <p>Equipamiento: Pantalla digital, frenos Brembo, suspensión deportiva</p>
-        <div class="qr">
-            <p>Escanea para más info:</p>
-            <img src="https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://TUUSUARIO.github.io/supercoches/index.html#skyline" alt="QR Skyline">
-        </div>
+        <h3>Especificaciones Skyline</h3>
+        <p>Turbo, velocidad máxima 250 km/h, motor RB26, 2 puertas...</p>
+        <a href="https://www.nissanusa.com/vehicles/sports-cars/gt-r.html" target="_blank" class="catalog-link">Ver catálogo oficial</a>
     </div>
 </div>
 
-<div id="modalChallenger" class="modal">
+<!-- Modal Supra -->
+<div id="modalSupra" class="modal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal('modalChallenger')">&times;</span>
-        <img src="supercochesimages/Dodgechallenger.webp" alt="Dodge Challenger">
-        <h2>Dodge Challenger</h2>
-        <p>Motor: 6.2L V8</p>
-        <p>Potencia: 717 HP</p>
-        <p>0-100 km/h: 3.6s</p>
-        <p>Velocidad máxima: 320 km/h</p>
-        <p>Transmisión: Automática 8 velocidades</p>
-        <p>Tracción: Trasera</p>
-        <p>Equipamiento: Asientos de cuero, pantalla táctil 12", audio Harman Kardon</p>
-        <div class="qr">
-            <p>Escanea para más info:</p>
-            <img src="https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://TUUSUARIO.github.io/supercoches/index.html#dodgechallenger" alt="QR Dodge Challenger">
-        </div>
+        <span class="close" onclick="closeModal('modalSupra')">&times;</span>
+        <img src="supercochesimages/Supra.webp" alt="Supra">
+        <h3>Especificaciones Supra</h3>
+        <p>Turbo, velocidad máxima 250 km/h, motor 2JZ-GTE, 2 puertas...</p>
+        <a href="https://www.toyota.com/supra/" target="_blank" class="catalog-link">Ver catálogo oficial</a>
     </div>
 </div>
 
-<footer>
-    <p>© 2025 WebAndChill | Todos los derechos reservados</p>
-</footer>
+<!-- Modal Dodge Challenger -->
+<div id="modalDodge" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modalDodge')">&times;</span>
+        <img src="supercochesimages/Dodgechallenger.webp" alt="Dodge Challenger">
+        <h3>Especificaciones Dodge Challenger</h3>
+        <p>V8, velocidad máxima 320 km/h, motor 6.2L HEMI, 2 puertas...</p>
+        <a href="https://www.dodge.com/challenger.html" target="_blank" class="catalog-link">Ver catálogo oficial</a>
+    </div>
+</div>
 
 <script>
-function openModal(id){document.getElementById(id).style.display="block";}
-function closeModal(id){document.getElementById(id).style.display="none";}
-window.onclick=function(event){
-    const modals=document.querySelectorAll('.modal');
-    modals.forEach(modal=>{if(event.target==modal) modal.style.display="none";});
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = "block";
+}
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none";
+}
+// Cerrar modal al hacer click fuera
+window.onclick = function(event) {
+    const modals = document.getElementsByClassName('modal');
+    for(let i=0; i<modals.length; i++){
+        if(event.target == modals[i]){
+            modals[i].style.display = "none";
+        }
+    }
 }
 </script>
-
 </body>
 </html>
