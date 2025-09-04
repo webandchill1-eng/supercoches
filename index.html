@@ -6,11 +6,11 @@
 <title>Super Coches</title>
 <style>
     body {
-        font-family: Arial, sans-serif;
-        background-color: #121212;
-        color: #fff;
+        font-family: 'Arial', sans-serif;
         margin: 0;
         padding: 0;
+        background: #121212;
+        color: #fff;
     }
     header {
         background-color: #1f1f1f;
@@ -25,17 +25,18 @@
     .menu {
         display: flex;
         justify-content: center;
-        margin: 20px 0;
-        gap: 30px;
+        gap: 40px;
         flex-wrap: wrap;
+        padding: 40px 20px 20px 20px;
     }
     .car-card {
         position: relative;
-        width: 250px;
-        height: 150px;
+        width: 280px;
+        height: 160px;
         overflow: hidden;
-        border-radius: 15px;
+        border-radius: 20px;
         cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
     }
     .car-card img {
         width: 100%;
@@ -43,8 +44,9 @@
         object-fit: cover;
         transition: transform 0.5s;
     }
-    .car-card:hover img {
-        transform: scale(1.1);
+    .car-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.7);
     }
     .overlay {
         position: absolute;
@@ -52,7 +54,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0,0,0,0.6);
+        background-color: rgba(0,0,0,0.5);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -67,13 +69,14 @@
         background-color: #f44336;
         color: #fff;
         text-decoration: none;
-        border-radius: 8px;
+        border-radius: 10px;
         font-weight: bold;
         transition: background-color 0.3s;
     }
     .catalog-link:hover {
         background-color: #ff6659;
     }
+    /* Modales */
     .modal {
         display: none;
         position: fixed;
@@ -87,17 +90,18 @@
     }
     .modal-content {
         background-color: #1f1f1f;
-        margin: 10% auto;
+        margin: 5% auto;
         padding: 20px;
-        border-radius: 10px;
-        width: 80%;
+        border-radius: 15px;
+        width: 90%;
         max-width: 700px;
         text-align: center;
     }
     .modal-content img {
         width: 100%;
         max-width: 400px;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
+        border-radius: 10px;
     }
     .close {
         color: #f44336;
@@ -109,9 +113,25 @@
     .close:hover {
         color: #fff;
     }
+    footer {
+        background-color: #1f1f1f;
+        text-align: center;
+        padding: 20px;
+        margin-top: 40px;
+        font-size: 0.9em;
+        color: #bbb;
+    }
+    footer a {
+        color: #f44336;
+        text-decoration: none;
+    }
+    footer a:hover {
+        text-decoration: underline;
+    }
 </style>
 </head>
 <body>
+
 <header>
     <h1>Super Coches</h1>
 </header>
@@ -120,23 +140,14 @@
     <!-- Skyline -->
     <div class="car-card" onclick="openModal('modalSkyline')">
         <img src="supercochesimages/Skyline.webp" alt="Skyline">
-        <div class="overlay">
-            <a href="https://www.nissanusa.com/vehicles/sports-cars/gt-r.html" target="_blank" class="catalog-link">Catálogo oficial</a>
-        </div>
     </div>
     <!-- Supra -->
     <div class="car-card" onclick="openModal('modalSupra')">
-        <img src="supercochesimages/Supra.webp" alt="Supra">
-        <div class="overlay">
-            <a href="https://www.toyota.com/supra/" target="_blank" class="catalog-link">Catálogo oficial</a>
-        </div>
+        <img src="supercochesimages/supra.webp" alt="Supra">
     </div>
     <!-- Dodge Challenger -->
     <div class="car-card" onclick="openModal('modalDodge')">
         <img src="supercochesimages/Dodgechallenger.webp" alt="Dodge Challenger">
-        <div class="overlay">
-            <a href="https://www.dodge.com/challenger.html" target="_blank" class="catalog-link">Catálogo oficial</a>
-        </div>
     </div>
 </div>
 
@@ -146,7 +157,7 @@
         <span class="close" onclick="closeModal('modalSkyline')">&times;</span>
         <img src="supercochesimages/Skyline.webp" alt="Skyline">
         <h3>Especificaciones Skyline</h3>
-        <p>Turbo, velocidad máxima 250 km/h, motor RB26, 2 puertas...</p>
+        <p>Turbo, velocidad máxima 250 km/h, motor RB26, 2 puertas, suspensión deportiva...</p>
         <a href="https://www.nissanusa.com/vehicles/sports-cars/gt-r.html" target="_blank" class="catalog-link">Ver catálogo oficial</a>
     </div>
 </div>
@@ -155,9 +166,9 @@
 <div id="modalSupra" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modalSupra')">&times;</span>
-        <img src="supercochesimages/Supra.webp" alt="Supra">
+        <img src="supercochesimages/supra.webp" alt="Supra">
         <h3>Especificaciones Supra</h3>
-        <p>Turbo, velocidad máxima 250 km/h, motor 2JZ-GTE, 2 puertas...</p>
+        <p>Turbo, velocidad máxima 250 km/h, motor 2JZ-GTE, 2 puertas, suspensión ajustable...</p>
         <a href="https://www.toyota.com/supra/" target="_blank" class="catalog-link">Ver catálogo oficial</a>
     </div>
 </div>
@@ -168,10 +179,15 @@
         <span class="close" onclick="closeModal('modalDodge')">&times;</span>
         <img src="supercochesimages/Dodgechallenger.webp" alt="Dodge Challenger">
         <h3>Especificaciones Dodge Challenger</h3>
-        <p>V8, velocidad máxima 320 km/h, motor 6.2L HEMI, 2 puertas...</p>
+        <p>V8, velocidad máxima 320 km/h, motor 6.2L HEMI, 2 puertas, sistema de escape deportivo...</p>
         <a href="https://www.dodge.com/challenger.html" target="_blank" class="catalog-link">Ver catálogo oficial</a>
     </div>
 </div>
+
+<footer>
+    &copy; 2025 WebAndChill. Todos los derechos reservados.  
+    Contacto: <a href="mailto:WebandChill1@gmail.com">WebandChill1@gmail.com</a>
+</footer>
 
 <script>
 function openModal(modalId) {
@@ -190,5 +206,6 @@ window.onclick = function(event) {
     }
 }
 </script>
+
 </body>
 </html>
